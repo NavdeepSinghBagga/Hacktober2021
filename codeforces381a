@@ -1,0 +1,63 @@
+#include <iostream>
+#include<bits/stdc++.h>
+typedef long long int ll;
+using namespace std;
+ 
+#define fastio ios_base::sync_with_stdio(false);cin.tie(nullptr);
+ 
+int main()
+{
+//   cout << "Hello World" << endl; 
+ 
+    fastio;
+    #ifndef ONLINE_JUDGE
+    // for getting input from input.txt
+    freopen("input.txt", "r", stdin);
+    // for writing output to output.txt
+    freopen("output.txt", "w", stdout);
+    #endif
+ 
+ 
+    ll n,i,t,j,m=INT_MIN;
+ 
+    
+    cin>>n;
+    
+    deque<ll> d;
+    for(i=0;i<n;i++){
+        cin>>t;
+        d.push_back(t);
+    }
+    // for(auto x:d)cout<<x<<" ";
+    bool turn=true;
+    ll a=0,b=0;
+    for(i=0;i<n;i++){
+        if(d.front()>d.back()){
+            if(i&1){
+                a+=d.front();
+                d.pop_front();
+            }
+            else{
+                b+=d.front();
+                d.pop_front();
+            }
+        }
+        else{
+            if(i&1){
+                a+=d.back();
+                d.pop_back();
+            }
+            else{
+                b+=d.back();
+                d.pop_back();
+            }
+        }
+    }
+    cout<<b<<" "<<a<<endl;
+ 
+    
+    
+ 
+   
+   return 0;
+}
